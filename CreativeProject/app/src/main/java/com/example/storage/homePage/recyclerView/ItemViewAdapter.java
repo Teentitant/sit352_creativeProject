@@ -34,7 +34,7 @@ public class ItemViewAdapter extends RecyclerView.Adapter<ItemViewAdapter.ItemVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
         holder.tv_title.setText(itemList.get(position).getTitle());
         holder.tv_description.setText(itemList.get(position).getDescription());
 
@@ -42,10 +42,13 @@ public class ItemViewAdapter extends RecyclerView.Adapter<ItemViewAdapter.ItemVi
             @Override
             public void onClick(View v) {
                 ItemDetailDialog itemDetailDialog = new ItemDetailDialog(context, R.layout.dialog_item_detail);
+                itemDetailDialog.setTitle(itemList.get(position).getTitle());
+                itemDetailDialog.setEmail(itemList.get(position).getEmail());
+                itemDetailDialog.setPassword(itemList.get(position).getPassword());
+                itemDetailDialog.setDescription(itemList.get(position).getDescription());
                 itemDetailDialog.show();
             }
         });
-
     }
 
     @Override
