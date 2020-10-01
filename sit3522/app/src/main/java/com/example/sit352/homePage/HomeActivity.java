@@ -111,6 +111,8 @@ public class HomeActivity extends AppCompatActivity {
                 if (direction == ItemTouchHelper.LEFT) {
                     db.deleteItem(itemList.get(position).getId());
                     itemViewAdapter.updateData();
+
+
                 }
             }
 

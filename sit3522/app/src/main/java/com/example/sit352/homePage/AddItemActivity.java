@@ -15,7 +15,7 @@ import com.example.sit352.database.model.Item;
 
 public class AddItemActivity extends AppCompatActivity {
     private EditText et_title, et_email, et_password, et_description;
-    private Button bt_add;
+    private Button bt_add, bt_add_return;
 
     private UserDBHelper db;
 
@@ -36,6 +36,7 @@ public class AddItemActivity extends AppCompatActivity {
         et_description = findViewById(R.id.et_add_description);
 
         bt_add = findViewById(R.id.bt_add_item);
+        bt_add_return = findViewById(R.id.bt_add_return);
 
         db = new UserDBHelper(this);
     }
@@ -66,6 +67,15 @@ public class AddItemActivity extends AppCompatActivity {
                         finish();
                     }
                 }
+            }
+        });
+
+        bt_add_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddItemActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
