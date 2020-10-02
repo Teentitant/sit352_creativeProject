@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +22,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText et_email, et_password;
     private TextView tv_create;
-    private Button bt_login;
+    private TextView intent_login;
+    private TextView intent_resetPassword;
+
+    private Button bt_visibility;
 
     private UserDBHelper db;
 
@@ -45,10 +49,13 @@ public class LoginActivity extends AppCompatActivity {
         et_password = findViewById(R.id.et_password);
 
         //text view
-        tv_create = findViewById(R.id.create_account);
+        tv_create = findViewById(R.id.intent_register);
 
-        //button
-        bt_login = findViewById(R.id.bt_login);
+        //intent
+        intent_login = findViewById(R.id.intent_login);
+        intent_resetPassword = findViewById(R.id.intent_resetPassword);
+
+        bt_visibility = findViewById(R.id.bt_login_visibility);
 
         //database
         db = new UserDBHelper(this);
@@ -89,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initLoginListener() {
         //button
-        bt_login.setOnClickListener(new View.OnClickListener() {
+        intent_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = et_email.getText().toString().trim();
@@ -104,6 +111,22 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 login();
+            }
+        });
+
+        intent_resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        bt_visibility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }

@@ -1,10 +1,12 @@
 package com.example.sit352.homePage;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,9 +15,12 @@ import com.example.sit352.R;
 import com.example.sit352.database.UserDBHelper;
 import com.example.sit352.database.model.Item;
 
+import javax.xml.transform.Templates;
+
 public class AddItemActivity extends AppCompatActivity {
     private EditText et_title, et_email, et_password, et_description;
-    private Button bt_add, bt_add_return;
+    private Button bt_add_return;
+    private TextView tv_add;
 
     private UserDBHelper db;
 
@@ -35,14 +40,14 @@ public class AddItemActivity extends AppCompatActivity {
         et_password = findViewById(R.id.et_add_password);
         et_description = findViewById(R.id.et_add_description);
 
-        bt_add = findViewById(R.id.bt_add_item);
+        tv_add = findViewById(R.id.bt_add_item);
         bt_add_return = findViewById(R.id.bt_add_return);
 
         db = new UserDBHelper(this);
     }
 
     private void initAddOnClickListener() {
-        bt_add.setOnClickListener(new View.OnClickListener() {
+        tv_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String title = et_title.getText().toString().trim();

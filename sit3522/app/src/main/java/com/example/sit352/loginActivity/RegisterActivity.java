@@ -3,8 +3,8 @@ package com.example.sit352.loginActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,7 @@ import com.example.sit352.database.model.UserModel;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText et_email, et_password, et_confirm_password;
-    private Button bt_register;
+    private TextView tv_register;
 
     private UserDBHelper db;
 
@@ -37,14 +37,14 @@ public class RegisterActivity extends AppCompatActivity {
         et_confirm_password = findViewById(R.id.registerConPassword);
 
         //button
-        bt_register = findViewById(R.id.bt_register);
+        tv_register = findViewById(R.id.bt_register);
 
         //database
         db = new UserDBHelper(this);
     }
 
     private void initRegisterButton() {
-        bt_register.setOnClickListener(new View.OnClickListener() {
+        tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = et_email.getText().toString().trim();

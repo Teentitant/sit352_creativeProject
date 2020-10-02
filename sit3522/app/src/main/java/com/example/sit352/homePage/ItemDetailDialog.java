@@ -17,7 +17,7 @@ import com.example.sit352.R;
 public class ItemDetailDialog extends Dialog {
     private TextView tv_title, tv_email, tv_password, tv_description;
     private Button bt_email_copy, bt_password_copy;
-    private Button bt_confirm;
+    private TextView bt_confirm;
 
     public ItemDetailDialog(@NonNull Context context, int layoutId) {
         super(context);
